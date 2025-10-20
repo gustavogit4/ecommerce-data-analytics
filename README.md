@@ -34,9 +34,11 @@ representando o ciclo real de trabalho de um **Analista de Dados** em um ambient
 
 ## 📊 Etapas do Projeto
 
+O projeto segue uma arquitetura de **pipeline ETL (Extract, Transform, Load)**, desenvolvida integralmente em **Python** e integrada ao banco relacional **SQLite**.
+
 | Etapa | Descrição | Status |
 |-------|------------|--------|
-| 🧱 **01 - Geração e Modelagem de Dados** | Criação de um banco de dados realista com 3 tabelas (clientes, produtos e vendas). | ✅ Concluído |
+| 🧱 **01 - Geração, Modelagem e ETL dos Dados** | Geração sintética de dados com Faker e NumPy, transformação e carga automatizada no banco `ecommerce_realista.db`. | ✅ Concluído |
 | 🧮 **02 - Análise SQL e Exploração em Python** | Consultas SQL e visualizações gráficas dos indicadores de negócio. | 🚧 Em desenvolvimento |
 | ⚙️ **03 - Automação e Power BI** | Integração e criação de dashboard dinâmico com atualização automática. | 🔜 Próxima etapa |
 
@@ -58,10 +60,11 @@ representando o ciclo real de trabalho de um **Analista de Dados** em um ambient
 ## 🧠 Autor
 
 **👤 Gustavo de Paula Silva**  
-📍 Cientista Social | Analista de Dados  
+📍 Analista de Dados  
 📧 gdepaulasilva966@gmail.com  
 🔗 [GitHub @gustavogit4](https://github.com/gustavogit4)  
 
 ---
 
 > 💡 *Este projeto integra práticas reais de Data Analytics e Business Intelligence, com foco em aprendizado contínuo e aplicação prática em cenários de negócio.*
+
