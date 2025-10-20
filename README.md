@@ -1,21 +1,67 @@
 # 🛒 Análise e Automação de Vendas de um E-commerce Brasileiro
 
-Este projeto simula um ambiente completo de análise de dados para um e-commerce fictício,
-com foco em demonstrar habilidades em **Python, SQL e Power BI** aplicadas à tomada de decisão.
+Este projeto simula um ambiente completo de **análise e automação de dados** para um e-commerce fictício,
+com foco em demonstrar habilidades práticas em **Python, SQL e Power BI** aplicadas à tomada de decisão.
 
-## 🎯 Objetivo
-Criar um pipeline completo — da geração e limpeza dos dados até a análise e visualização —,
-simulando o comportamento real de clientes, produtos e vendas no período de 2022 a 2024.
+---
 
-## 📂 Estrutura Atual
-- `notebooks/01_geracao_dados.ipynb` → Geração e modelagem dos dados  
-- `data/ecommerce_realista.db` → Banco relacional gerado  
-- `requirements.txt` → Dependências do projeto  
+## 🎯 Objetivo do Projeto
 
-## 🧠 Próximas Etapas
-- Notebook 02: Análise exploratória (SQL + Python)  
-- Dashboard Power BI  
-- Automação de relatórios com Python  
+Construir um **pipeline de dados completo** — da geração e modelagem até a análise e automação de relatórios —  
+representando o ciclo real de trabalho de um **Analista de Dados** em um ambiente corporativo.
 
-## 🧰 Tecnologias Utilizadas
-Python · Pandas · SQLite · Faker · Power BI
+---
+
+## 🧠 Estrutura do Projeto
+
+| Diretório / Arquivo | Descrição |
+|----------------------|------------|
+| 📁 `data/` | Contém o banco de dados relacional `ecommerce_realista.db` |
+| 📁 `notebooks/` | Códigos em Python (.ipynb) para geração e exploração dos dados |
+| 📄 `README.md` | Documentação completa do projeto |
+| ⚙️ `requirements.txt` | Lista de dependências utilizadas |
+
+---
+
+## 🧩 Tecnologias Utilizadas
+
+- **Python** → Pandas, NumPy, Faker, Matplotlib, Seaborn  
+- **Banco de Dados** → SQLite  
+- **Visualização e BI** → Power BI  
+- **Controle de Versão** → Git & GitHub  
+
+---
+
+## 📊 Etapas do Projeto
+
+| Etapa | Descrição | Status |
+|-------|------------|--------|
+| 🧱 **01 - Geração e Modelagem de Dados** | Criação de um banco de dados realista com 3 tabelas (clientes, produtos e vendas). | ✅ Concluído |
+| 🧮 **02 - Análise SQL e Exploração em Python** | Consultas SQL e visualizações gráficas dos indicadores de negócio. | 🚧 Em desenvolvimento |
+| ⚙️ **03 - Automação e Power BI** | Integração e criação de dashboard dinâmico com atualização automática. | 🔜 Próxima etapa |
+
+---
+
+## 🗃️ Estrutura do Banco de Dados
+
+**Arquivo:** `data/ecommerce_realista.db`
+
+**Tabelas disponíveis:**
+- `clientes`
+- `produtos`
+- `vendas`
+
+> O banco pode ser consultado via Python (`sqlite3` ou `pandas.read_sql_query`) ou conectado diretamente ao **Power BI**.
+
+---
+
+## 🧠 Autor
+
+**👤 Gustavo de Paula Silva**  
+📍 Cientista Social | Analista de Dados  
+📧 gdepaulasilva966@gmail.com  
+🔗 [GitHub @gustavogit4](https://github.com/gustavogit4)  
+
+---
+
+> 💡 *Este projeto integra práticas reais de Data Analytics e Business Intelligence, com foco em aprendizado contínuo e aplicação prática em cenários de negócio.*
