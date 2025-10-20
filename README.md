@@ -17,7 +17,7 @@ representando o ciclo real de trabalho de um **Analista de Dados** em um ambient
 | Diretório / Arquivo | Descrição |
 |----------------------|------------|
 | 📁 `data/` | Contém o banco de dados relacional `ecommerce_realista.db` |
-| 📁 `notebooks/` | Códigos em Python (.ipynb) para geração e exploração dos dados |
+| 📁 `notebooks/` | Códigos em Python (.ipynb) para geração, exploração e análise dos dados |
 | 📄 `README.md` | Documentação completa do projeto |
 | ⚙️ `requirements.txt` | Lista de dependências utilizadas |
 
@@ -34,13 +34,20 @@ representando o ciclo real de trabalho de um **Analista de Dados** em um ambient
 
 ## 📊 Etapas do Projeto
 
-O projeto segue uma arquitetura de **pipeline ETL (Extract, Transform, Load)**, desenvolvida integralmente em **Python** e integrada ao banco relacional **SQLite**.
+O projeto segue uma arquitetura de **pipeline ELT (Extract, Load, Transform)**, desenvolvida em **Python** e integrada ao banco relacional **SQLite**.
+
+Nesta etapa inicial, o foco está na **geração e carga dos dados** no banco, simulando um processo real de ingestão e armazenamento de dados corporativos.
 
 | Etapa | Descrição | Status |
 |-------|------------|--------|
-| 🧱 **01 - Geração, Modelagem e ETL dos Dados** | Geração sintética de dados com Faker e NumPy, transformação e carga automatizada no banco `ecommerce_realista.db`. | ✅ Concluído |
-| 🧮 **02 - Análise SQL e Exploração em Python** | Consultas SQL e visualizações gráficas dos indicadores de negócio. | 🚧 Em desenvolvimento |
+| 🧱 **01 - Geração e Carga de Dados (E + L)** | Geração de dados sintéticos com Faker e NumPy e carga automatizada no banco `ecommerce_realista.db`. | ✅ Concluído |
+| 🧮 **02 - Transformação e Análise (T)** | Aplicação de transformações analíticas em SQL e Python para criação de métricas e visualizações. | 🚧 Em desenvolvimento |
 | ⚙️ **03 - Automação e Power BI** | Integração e criação de dashboard dinâmico com atualização automática. | 🔜 Próxima etapa |
+
+> 💡 O projeto implementa um pipeline **ELT**, prática comum em arquiteturas modernas de dados:  
+> - **Extract** → Geração de dados sintéticos  
+> - **Load** → Carga no banco SQLite  
+> - **Transform** → Consultas SQL e análises em Python e Power BI
 
 ---
 
@@ -48,12 +55,62 @@ O projeto segue uma arquitetura de **pipeline ETL (Extract, Transform, Load)**, 
 
 **Arquivo:** `data/ecommerce_realista.db`
 
-**Tabelas disponíveis:**
-- `clientes`
-- `produtos`
-- `vendas`
+O banco de dados foi construído em **SQLite**, adotando um **modelo estrela (Star Schema) simplificado**, amplamente utilizado em projetos de **Business Intelligence** e **Data Warehousing**.
 
-> O banco pode ser consultado via Python (`sqlite3` ou `pandas.read_sql_query`) ou conectado diretamente ao **Power BI**.
+Nesse modelo, as **tabelas dimensão** armazenam informações descritivas (como clientes e produtos), enquanto a **tabela fato** centraliza os eventos de negócio — neste caso, as vendas.
+
+---
+
+### 🔹 Modelo de Dados
+
+#### **1. Dimensão: Clientes**
+Armazena informações demográficas e cadastrais dos clientes.  
+Campos principais:
+- `id_cliente` (PRIMARY KEY)  
+- `nome`  
+- `idade`  
+- `genero`  
+- `cidade`  
+- `estado`  
+- `data_cadastro`
+
+#### **2. Dimensão: Produtos**
+Contém informações sobre os produtos disponíveis no e-commerce.  
+Campos principais:
+- `id_produto` (PRIMARY KEY)  
+- `categoria`  
+- `preco`  
+- `descricao`
+
+#### **3. Fato: Vendas**
+Registra cada transação realizada por um cliente.  
+Campos principais:
+- `id_venda` (PRIMARY KEY)  
+- `id_cliente` (FOREIGN KEY → clientes)  
+- `id_produto` (FOREIGN KEY → produtos)  
+- `quantidade`  
+- `data_venda`  
+- `canal_venda`  
+- `valor_total`
+
+---
+
+### 🔹 Relacionamentos
+
+- **1:N** entre **Clientes → Vendas**  
+  (um cliente pode realizar várias compras)  
+- **1:N** entre **Produtos → Vendas**  
+  (um produto pode estar presente em várias transações)
+
+Essa estrutura permite análises de negócio como:
+- Total de vendas por **canal**, **estado** ou **faixa etária**  
+- Ticket médio e valor total gasto por **cliente**  
+- Faturamento por **categoria de produto**  
+- Tendências de vendas ao longo do **tempo**
+
+---
+
+> O banco pode ser consultado via Python (`sqlite3` ou `pandas.read_sql_query`) ou conectado diretamente ao **Power BI**, preservando os relacionamentos originais para criação de dashboards analíticos.
 
 ---
 
@@ -67,4 +124,3 @@ O projeto segue uma arquitetura de **pipeline ETL (Extract, Transform, Load)**, 
 ---
 
 > 💡 *Este projeto integra práticas reais de Data Analytics e Business Intelligence, com foco em aprendizado contínuo e aplicação prática em cenários de negócio.*
-
