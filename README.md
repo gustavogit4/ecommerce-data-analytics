@@ -1,55 +1,79 @@
-# 🛒 Análise e Automação de Vendas de um E-commerce Brasileiro
+📊 Etapas do Projeto
+O projeto segue uma arquitetura de pipeline ELT (Extract, Load, Transform), desenvolvida em Python e integrada ao banco relacional SQLite.  
 
-Este projeto simula um ambiente completo de **análise e automação de dados** para um e-commerce fictício,
-com foco em demonstrar habilidades práticas em **Python, SQL e Power BI** aplicadas à tomada de decisão.
-
----
-
-## 🎯 Objetivo do Projeto
-
-Construir um **pipeline de dados completo** — da geração e modelagem até a análise e automação de relatórios —  
-representando o ciclo real de trabalho de um **Analista de Dados** em um ambiente corporativo.
-
----
-
-## 🧠 Estrutura do Projeto
-
-| Diretório / Arquivo | Descrição |
-|----------------------|------------|
-| 📁 `data/` | Contém o banco de dados relacional `ecommerce_realista.db` |
-| 📁 `notebooks/` | Códigos em Python (.ipynb) para geração, exploração e análise dos dados |
-| 📄 `README.md` | Documentação completa do projeto |
-| ⚙️ `requirements.txt` | Lista de dependências utilizadas |
-
----
-
-## 🧩 Tecnologias Utilizadas
-
-- **Python** → Pandas, NumPy, Faker, Matplotlib, Seaborn  
-- **Banco de Dados** → SQLite  
-- **Visualização e BI** → Power BI  
-- **Controle de Versão** → Git & GitHub  
-
----
-
-## 📊 Etapas do Projeto
-
-O projeto segue uma arquitetura de **pipeline ELT (Extract, Load, Transform)**, desenvolvida em **Python** e integrada ao banco relacional **SQLite**.
-
-Nesta etapa inicial, o foco está na **geração e carga dos dados** no banco, simulando um processo real de ingestão e armazenamento de dados corporativos.
+As análises foram divididas em etapas modulares, cada uma representando uma fase real do trabalho de um Analista de Dados:
 
 | Etapa | Descrição | Status |
 |-------|------------|--------|
 | 🧱 **01 - Geração e Carga de Dados (E + L)** | Geração de dados sintéticos com Faker e NumPy e carga automatizada no banco `ecommerce_realista.db`. | ✅ Concluído |
-| 🧮 **02 - Transformação e Análise (T)** | Aplicação de transformações analíticas em SQL e Python para criação de métricas e visualizações. | 🚧 Em desenvolvimento |
+| 🧮 **02 - Transformação e Análise (T)** | Aplicação de transformações analíticas em SQL e Python para criação de métricas e visualizações estratégicas. | ✅ Concluído |
 | ⚙️ **03 - Automação e Power BI** | Integração e criação de dashboard dinâmico com atualização automática. | 🔜 Próxima etapa |
 
-> 💡 O projeto implementa um pipeline **ELT**, prática comum em arquiteturas modernas de dados:  
-> - **Extract** → Geração de dados sintéticos  
-> - **Load** → Carga no banco SQLite  
-> - **Transform** → Consultas SQL e análises em Python e Power BI
+---
+
+## 📈 Etapa 2 — Transformação e Análise
+
+Nesta fase, os dados foram tratados e analisados para compreender o comportamento de compra dos clientes, o desempenho das categorias e o equilíbrio entre os canais de venda.  
+
+As consultas SQL foram integradas ao Python para gerar **indicadores de faturamento, ticket médio e volume de vendas**, visualizados por meio de gráficos.
 
 ---
+
+### 🔹 Principais Resultados
+
+#### Faturamento por Categoria
+![Faturamento por Categoria](imagens/grafico_categorias.png)
+
+#### Faturamento por Canal de Venda
+![Faturamento por Canal](imagens/grafico_canais_venda.png)
+
+#### Top 10 Produtos Mais Vendidos
+![Top 10 Produtos](imagens/grafico_produtos_top10.png)
+
+#### Top 10 Clientes por Faturamento
+![Top 10 Clientes](imagens/grafico_clientes.png)
+
+#### Curva de Pareto — Distribuição de Faturamento por Cliente
+![Pareto Clientes](imagens/grafico_clientes_pareto.png)
+
+---
+
+## 💡 Conclusões e Insights Estratégicos
+
+- **Faturamento total:** R$ 5,87 milhões, com 27 mil produtos vendidos e ticket médio de R$ 210,50.  
+- **Canais equilibrados:** E-commerce e loja física dividiram o faturamento de forma equilibrada (~R$ 2,56 milhões cada), demonstrando uma operação omnichannel madura.  
+- **Categoria dominante:** Eletrônicos concentraram 86% da receita, com ticket médio de R$ 1.659, reforçando o peso dos produtos premium.  
+- **Comportamento de clientes:** Um pequeno grupo de clientes gerou a maior parte das receitas, confirmando o **efeito Pareto (80/20)**.  
+- **Base de dados consistente:** Após limpeza e validações, não foram encontradas duplicatas e apenas nulos esperados em campos de canal de venda.  
+
+🔎 *Síntese:*  
+A operação do e-commerce é eficiente e concentrada em clientes e produtos de alto valor.  
+As próximas etapas focarão na **automação e visualização dos KPIs no Power BI**, integrando as métricas de receita, canal e cliente em dashboards dinâmicos.
+
+---
+
+## 🧠 Tecnologias Utilizadas
+- **Python** → Pandas, NumPy, Matplotlib, Seaborn, SQLite3  
+- **Banco de Dados** → SQLite  
+- **Visualização e BI** → Power BI (próxima etapa)  
+- **Controle de Versão** → Git & GitHub  
+
+---
+
+## 🧩 Estrutura do Repositório
+├── data/
+│ └── ecommerce_realista.db
+├── imagens/
+│ ├── grafico_categorias.png
+│ ├── grafico_canais_venda.png
+│ ├── grafico_produtos_top10.png
+│ ├── grafico_clientes.png
+│ ├── grafico_clientes_pareto.png
+│ └── grafico_faturamento_total.png
+├── notebooks/
+│ ├── 01_geracao_dados.ipynb
+│ └── 02_transformacao_analise_ecommerce.ipynb
+└── README.md
 
 ## 🗃️ Estrutura do Banco de Dados
 
@@ -124,3 +148,4 @@ Essa estrutura permite análises de negócio como:
 ---
 
 > 💡 *Este projeto integra práticas reais de Data Analytics e Business Intelligence, com foco em aprendizado contínuo e aplicação prática em cenários de negócio.*
+
