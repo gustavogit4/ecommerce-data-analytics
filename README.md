@@ -1,5 +1,38 @@
-📊 Etapas do Projeto
-O projeto segue uma arquitetura de pipeline ELT (Extract, Load, Transform), desenvolvida em Python e integrada ao banco relacional SQLite.  
+# 🛒 Análise e Automação de Vendas de um E-commerce Brasileiro
+
+Este projeto simula um ambiente completo de análise e automação de dados para um e-commerce fictício, com foco em demonstrar habilidades práticas em **Python**, **SQL** e **Power BI** aplicadas à tomada de decisão.
+
+---
+
+## 🎯 Objetivo do Projeto
+
+Construir um **pipeline de dados completo** — da geração e modelagem até a análise e automação de relatórios — representando o ciclo real de trabalho de um **Analista de Dados** em um ambiente corporativo.
+
+---
+
+## 🧠 Estrutura do Projeto
+
+| Diretório / Arquivo | Descrição |
+|----------------------|------------|
+| 📁 **data/** | Contém o banco de dados relacional `ecommerce_realista.db` |
+| 📁 **notebooks/** | Códigos em Python (`.ipynb`) para geração, exploração e análise dos dados |
+| 📄 **README.md** | Documentação completa do projeto |
+| ⚙️ **requirements.txt** | Lista de dependências utilizadas |
+
+---
+
+## 🧩 Tecnologias Utilizadas
+
+- **Python** → Pandas, NumPy, Faker, Matplotlib, Seaborn  
+- **Banco de Dados** → SQLite  
+- **Visualização e BI** → Power BI  
+- **Controle de Versão** → Git & GitHub  
+
+---
+
+## 📊 Etapas do Projeto
+
+O projeto segue uma arquitetura de **pipeline ELT (Extract, Load, Transform)**, desenvolvida em Python e integrada ao banco relacional SQLite.  
 
 As análises foram divididas em etapas modulares, cada uma representando uma fase real do trabalho de um Analista de Dados:
 
@@ -46,34 +79,21 @@ As consultas SQL foram integradas ao Python para gerar **indicadores de faturame
 - **Comportamento de clientes:** Um pequeno grupo de clientes gerou a maior parte das receitas, confirmando o **efeito Pareto (80/20)**.  
 - **Base de dados consistente:** Após limpeza e validações, não foram encontradas duplicatas e apenas nulos esperados em campos de canal de venda.  
 
-🔎 *Síntese:*  
+🔎 **Síntese:**  
 A operação do e-commerce é eficiente e concentrada em clientes e produtos de alto valor.  
 As próximas etapas focarão na **automação e visualização dos KPIs no Power BI**, integrando as métricas de receita, canal e cliente em dashboards dinâmicos.
 
 ---
 
 ## 🧠 Tecnologias Utilizadas
+
 - **Python** → Pandas, NumPy, Matplotlib, Seaborn, SQLite3  
 - **Banco de Dados** → SQLite  
 - **Visualização e BI** → Power BI (próxima etapa)  
 - **Controle de Versão** → Git & GitHub  
 
----
 
-## 🧩 Estrutura do Repositório
-├── data/
-│ └── ecommerce_realista.db
-├── imagens/
-│ ├── grafico_categorias.png
-│ ├── grafico_canais_venda.png
-│ ├── grafico_produtos_top10.png
-│ ├── grafico_clientes.png
-│ ├── grafico_clientes_pareto.png
-│ └── grafico_faturamento_total.png
-├── notebooks/
-│ ├── 01_geracao_dados.ipynb
-│ └── 02_transformacao_analise_ecommerce.ipynb
-└── README.md
+---
 
 ## 🗃️ Estrutura do Banco de Dados
 
@@ -132,20 +152,18 @@ Essa estrutura permite análises de negócio como:
 - Faturamento por **categoria de produto**  
 - Tendências de vendas ao longo do **tempo**
 
----
-
 > O banco pode ser consultado via Python (`sqlite3` ou `pandas.read_sql_query`) ou conectado diretamente ao **Power BI**, preservando os relacionamentos originais para criação de dashboards analíticos.
 
 ---
 
-## 🧠 Autor
+## 👤 Autor
 
-**👤 Gustavo de Paula Silva**  
+**Gustavo de Paula Silva**  
 📍 Analista de Dados  
 📧 gdepaulasilva966@gmail.com  
-🔗 [GitHub @gustavogit4](https://github.com/gustavogit4)  
+🔗 [GitHub @gustavogit4](https://github.com/gustavogit4)
 
----
 
 > 💡 *Este projeto integra práticas reais de Data Analytics e Business Intelligence, com foco em aprendizado contínuo e aplicação prática em cenários de negócio.*
+
 
