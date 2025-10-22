@@ -15,6 +15,7 @@ Construir um **pipeline de dados completo** — da geração e modelagem até a 
 | Diretório / Arquivo | Descrição |
 |----------------------|------------|
 | 📁 **data/** | Contém o banco de dados relacional `ecommerce_realista.db` |
+| 📁 **imagens/** | Gráficos gerados a partir das análises em Python |
 | 📁 **notebooks/** | Códigos em Python (`.ipynb`) para geração, exploração e análise dos dados |
 | 📄 **README.md** | Documentação completa do projeto |
 | ⚙️ **requirements.txt** | Lista de dependências utilizadas |
@@ -32,9 +33,9 @@ Construir um **pipeline de dados completo** — da geração e modelagem até a 
 
 ## 📊 Etapas do Projeto
 
-O projeto segue uma arquitetura de **pipeline ELT (Extract, Load, Transform)**, desenvolvida em Python e integrada ao banco relacional SQLite.  
+O projeto segue uma arquitetura de **pipeline ELT (Extract, Load, Transform)**, desenvolvida em Python e integrada ao banco relacional SQLite.
 
-As análises foram divididas em etapas modulares, cada uma representando uma fase real do trabalho de um Analista de Dados:
+As análises foram divididas em etapas modulares, representando o fluxo de trabalho de um analista de dados:
 
 | Etapa | Descrição | Status |
 |-------|------------|--------|
@@ -46,7 +47,7 @@ As análises foram divididas em etapas modulares, cada uma representando uma fas
 
 ## 📈 Etapa 2 — Transformação e Análise
 
-Nesta fase, os dados foram tratados e analisados para compreender o comportamento de compra dos clientes, o desempenho das categorias e o equilíbrio entre os canais de venda.  
+Nesta fase, os dados foram tratados e analisados para compreender o comportamento de compra dos clientes, o desempenho das categorias e o equilíbrio entre os canais de venda.
 
 As consultas SQL foram integradas ao Python para gerar **indicadores de faturamento, ticket médio e volume de vendas**, visualizados por meio de gráficos.
 
@@ -74,24 +75,14 @@ As consultas SQL foram integradas ao Python para gerar **indicadores de faturame
 ## 💡 Conclusões e Insights Estratégicos
 
 - **Faturamento total:** R$ 5,87 milhões, com 27 mil produtos vendidos e ticket médio de R$ 210,50.  
-- **Canais equilibrados:** E-commerce e loja física dividiram o faturamento de forma equilibrada (~R$ 2,56 milhões cada), demonstrando uma operação omnichannel madura.  
-- **Categoria dominante:** Eletrônicos concentraram 86% da receita, com ticket médio de R$ 1.659, reforçando o peso dos produtos premium.  
-- **Comportamento de clientes:** Um pequeno grupo de clientes gerou a maior parte das receitas, confirmando o **efeito Pareto (80/20)**.  
+- **Canais equilibrados:** E-commerce e loja física dividiram o faturamento de forma quase igual (~R$ 2,56 milhões cada), demonstrando uma operação omnichannel consolidada.  
+- **Categorias de destaque:** Alimentos e Eletrônicos concentram o maior faturamento, combinando produtos de alto giro e itens premium.  
+- **Comportamento de clientes:** Um grupo reduzido de consumidores responde por grande parte da receita, confirmando o **efeito Pareto (80/20)**.  
 - **Base de dados consistente:** Após limpeza e validações, não foram encontradas duplicatas e apenas nulos esperados em campos de canal de venda.  
 
 🔎 **Síntese:**  
-A operação do e-commerce é eficiente e concentrada em clientes e produtos de alto valor.  
-As próximas etapas focarão na **automação e visualização dos KPIs no Power BI**, integrando as métricas de receita, canal e cliente em dashboards dinâmicos.
-
----
-
-## 🧠 Tecnologias Utilizadas
-
-- **Python** → Pandas, NumPy, Matplotlib, Seaborn, SQLite3  
-- **Banco de Dados** → SQLite  
-- **Visualização e BI** → Power BI (próxima etapa)  
-- **Controle de Versão** → Git & GitHub  
-
+O e-commerce apresenta operação equilibrada, portfólio diversificado e base de clientes concentrada, mas fiel.  
+As próximas etapas focarão na **automação e visualização dos KPIs no Power BI**, consolidando o ciclo completo de análise e tomada de decisão.
 
 ---
 
@@ -99,17 +90,15 @@ As próximas etapas focarão na **automação e visualização dos KPIs no Power
 
 **Arquivo:** `data/ecommerce_realista.db`
 
-O banco de dados foi construído em **SQLite**, adotando um **modelo estrela (Star Schema) simplificado**, amplamente utilizado em projetos de **Business Intelligence** e **Data Warehousing**.
+O banco foi construído em **SQLite**, com um **modelo estrela (Star Schema) simplificado**, amplamente utilizado em projetos de **Business Intelligence**.
 
-Nesse modelo, as **tabelas dimensão** armazenam informações descritivas (como clientes e produtos), enquanto a **tabela fato** centraliza os eventos de negócio — neste caso, as vendas.
+Nesse modelo, as tabelas dimensão armazenam informações descritivas (como clientes e produtos), enquanto a tabela fato centraliza os eventos de negócio — neste caso, as vendas.
 
 ---
 
 ### 🔹 Modelo de Dados
 
 #### **1. Dimensão: Clientes**
-Armazena informações demográficas e cadastrais dos clientes.  
-Campos principais:
 - `id_cliente` (PRIMARY KEY)  
 - `nome`  
 - `idade`  
@@ -119,16 +108,12 @@ Campos principais:
 - `data_cadastro`
 
 #### **2. Dimensão: Produtos**
-Contém informações sobre os produtos disponíveis no e-commerce.  
-Campos principais:
 - `id_produto` (PRIMARY KEY)  
 - `categoria`  
-- `preco`  
+- `preco_unitario`  
 - `descricao`
 
 #### **3. Fato: Vendas**
-Registra cada transação realizada por um cliente.  
-Campos principais:
 - `id_venda` (PRIMARY KEY)  
 - `id_cliente` (FOREIGN KEY → clientes)  
 - `id_produto` (FOREIGN KEY → produtos)  
@@ -142,17 +127,21 @@ Campos principais:
 ### 🔹 Relacionamentos
 
 - **1:N** entre **Clientes → Vendas**  
-  (um cliente pode realizar várias compras)  
-- **1:N** entre **Produtos → Vendas**  
-  (um produto pode estar presente em várias transações)
+- **1:N** entre **Produtos → Vendas**
 
-Essa estrutura permite análises de negócio como:
-- Total de vendas por **canal**, **estado** ou **faixa etária**  
+Essas relações permitem análises de negócio como:
+- Total de vendas por **canal**, **categoria** e **região**  
 - Ticket médio e valor total gasto por **cliente**  
 - Faturamento por **categoria de produto**  
-- Tendências de vendas ao longo do **tempo**
+- Tendências e sazonalidades de **vendas ao longo do tempo**
 
-> O banco pode ser consultado via Python (`sqlite3` ou `pandas.read_sql_query`) ou conectado diretamente ao **Power BI**, preservando os relacionamentos originais para criação de dashboards analíticos.
+> O banco pode ser consultado via Python (`sqlite3`, `pandas.read_sql_query`) ou conectado diretamente ao **Power BI**, preservando todos os relacionamentos para criação de dashboards analíticos.
+
+---
+
+## 📈 Próximos Passos
+
+A próxima fase do projeto consiste em criar dashboards interativos no **Power BI**, automatizando a atualização dos dados e monitorando métricas de desempenho em tempo real (KPIs de receita, clientes e categorias).
 
 ---
 
@@ -161,9 +150,6 @@ Essa estrutura permite análises de negócio como:
 **Gustavo de Paula Silva**  
 📍 Analista de Dados  
 📧 gdepaulasilva966@gmail.com  
-🔗 [GitHub @gustavogit4](https://github.com/gustavogit4)
+🔗 [GitHub @gustavogit4](https://github.com/gustavogit4)  
 
-
-> 💡 *Este projeto integra práticas reais de Data Analytics e Business Intelligence, com foco em aprendizado contínuo e aplicação prática em cenários de negócio.*
-
-
+> 💡 *Projeto desenvolvido com foco em aprendizado contínuo e aplicação prática de técnicas de Data Analytics e Business Intelligence em cenários de negócio reais.*
