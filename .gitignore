@@ -1,0 +1,35 @@
+# ===============================
+# E-commerce Data Analytics
+# Arquivos e pastas ignorados no versionamento
+# ===============================
+
+# Dados brutos e bancos locais
+data/*.csv
+data/*.db
+
+# Arquivos temporários e cache do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.log
+
+# Checkpoints automáticos do Jupyter
+.ipynb_checkpoints/
+
+# Configurações locais do VS Code
+.vscode/
+
+# Arquivos do Power BI
+*.pbix.lock
+*.pbix.tmp
+
+# Arquivos de sistema (Windows / macOS)
+.DS_Store
+Thumbs.db
+
+# Backups ou duplicados acidentais
+*.bak
+*.old
+*.tmp
