@@ -1,4 +1,6 @@
-# E-commerce Data Analytics — Gustavo de Paula Silva  
+# E-commerce Data Analytics — Gustavo de Paula Silva 
+
+---
 
 Simulação completa de um ambiente de **análise e automação de dados**, integrando Python, SQLite e Power BI.
 
@@ -95,22 +97,30 @@ ecommerce-data-analytics_Gustavo_Paula_Silva/
 1. Clone o repositório:
    ```bash
    git clone https://github.com/gustavogit4/ecommerce-data-analytics.git
-
+```
+   ```bash
 2. Instale as dependências:
    pip install -r requirements.txt
-
+```
+   ```bash
 3. Execute o script de automação:
    python scripts/automacao_ecommerce.py
-
+```
+   ```bash
 4. Abra o dashboard no Power BI:
    dashboard/ecommerce_dashboard.pbix
-
 ```
 
-Autor
-Gustavo de Paula Silva
+---
+
+## Autor
+
+**Gustavo de Paula Silva**
+
 Analista de Dados | Pós-graduação em Estatística para Ciência de Dados — PUC Minas
+
 E-mail: gdepaulasilva966@gmail.com
+
 GitHub: @gustavogit4
 
 ---
