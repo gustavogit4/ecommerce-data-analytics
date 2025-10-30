@@ -2,8 +2,6 @@
 
 Simulação completa de um ambiente de **análise e automação de dados**, integrando Python, SQLite e Power BI.
 
----
-
 ## Objetivo
 
 O projeto tem como objetivo representar o ciclo real de trabalho de um **Analista de Dados**, desde a geração até a visualização e automação das informações.  
@@ -90,7 +88,7 @@ ecommerce-data-analytics_Gustavo_Paula_Silva/
 ├── README.md
 └── requirements.txt
 
----
+```
 
 ## 🔄 Como Executar o Projeto
 
@@ -107,7 +105,7 @@ ecommerce-data-analytics_Gustavo_Paula_Silva/
 4. Abra o dashboard no Power BI:
    dashboard/ecommerce_dashboard.pbix
 
----
+```
 
 Autor
 Gustavo de Paula Silva
