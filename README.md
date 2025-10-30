@@ -1,143 +1,129 @@
-# Análise e Automação de Vendas de um E-commerce Brasileiro
+# E-commerce Data Analytics — Gustavo de Paula Silva  
 
-Este projeto simula um ambiente completo de **análise e automação de dados** para um e-commerce fictício, desenvolvido em **Python**, **SQL** e **Power BI**.
+Simulação completa de um ambiente de **análise e automação de dados**, integrando Python, SQLite e Power BI.
 
-O objetivo é demonstrar, de forma prática e realista, o ciclo completo de trabalho de um Analista de Dados — da criação do banco relacional à geração automatizada de relatórios e dashboards.
+---
 
-## Objetivo do Projeto
+## Objetivo
 
-O projeto tem como objetivo construir um **pipeline de dados completo**, cobrindo todas as etapas do ciclo analítico:
+O projeto tem como objetivo representar o ciclo real de trabalho de um **Analista de Dados**, desde a geração até a visualização e automação das informações.  
 
-1. **Geração e modelagem dos dados** — criação de um banco relacional com dados sintéticos realistas.  
-2. **Transformação e análise exploratória** — integração de consultas SQL e manipulação com Pandas.  
-3. **Automação do processo** — exportação automática de relatórios e logs.  
-4. **Integração com Business Intelligence (BI)** — visualização e acompanhamento de KPIs no Power BI.
+Foi desenvolvido um **e-commerce fictício**, com dados sintéticos realistas que simulam o comportamento de clientes, produtos e vendas.
 
-Esse fluxo representa o processo real de um analista de dados corporativo:  
-coleta, limpeza, análise, visualização e automação de insights.
+---
+
+## Etapas do Projeto
+
+### 1️⃣ Geração e Carga de Dados (Python + SQLite)
+- Criação do banco de dados relacional `ecommerce_realista.db`.
+- Tabelas: **clientes**, **produtos** e **vendas**.
+- Simulação de dados coerentes com o contexto de um e-commerce real.
+
+### 2️⃣ Transformação e Análise de Dados (Pandas + SQL)
+- Limpeza, transformação e consolidação das tabelas.
+- Cálculo de métricas de desempenho: faturamento, ticket médio, vendas por categoria e cliente.
+- Armazenamento dos resultados em `data_export/`.
+
+### 3️⃣ Automação de Processos (Python Script)
+- Geração automática de relatórios CSV e atualização do banco SQLite.
+- Script: `scripts/automacao_ecommerce.py`
+- Execução automatizada do pipeline de dados.
+
+### 4️⃣ Dashboard Interativo (Power BI)
+- Criação de dashboard com KPIs, filtros e indicadores visuais.
+- Conexão direta com o banco SQLite e arquivos CSV exportados.
+- Indicadores: **Faturamento Total**, **Ticket Médio**, **Metas**, **Atualização Automática**.
+
+---
+
+## 📊 Dashboard
+
+### Power BI — *E-commerce Data Analytics*
+![Dashboard Preview](dashboard/dashboard_preview.png)
+
+O arquivo do dashboard está disponível em:  
+📁 `dashboard/ecommerce_dashboard.pbix`
+
+---
+
+## Modelo de Dados
+
+![Modelo de Dados](dashboard/dashboard_model.png)
+
+Esquema estrela com a tabela fato `vendas` e dimensões `clientes`, `produtos`, `metas_kpi`, `tabela_medidas` e `atualizacao`.
+
+---
+
+## Principais Insights
+
+- A categoria **Eletrônicos** possui o **maior faturamento** e garante estabilidade financeira.  
+- **Eletrônicos** e **Alimentos** representam categorias de alto giro.  
+- O **ticket médio** se mantém estável, com tendência de crescimento nos últimos meses.  
+- O painel possui **metas dinâmicas**, permitindo avaliar o desempenho em tempo real.
+
+---
+
+## Tecnologias Utilizadas
+
+| Tecnologia | Descrição |
+|-------------|------------|
+| **Python 3.11** | Geração e automação de dados |
+| **Pandas / Numpy** | Manipulação e análise |
+| **SQLite3** | Armazenamento relacional |
+| **Power BI** | Visualização e KPIs |
+| **Git & GitHub** | Controle de versão |
+
+---
 
 ## Estrutura do Projeto
 
 ```text
-ecommerce-data-analytics/
+ecommerce-data-analytics_Gustavo_Paula_Silva/
 │
-├── data/                            → Banco de dados relacional (SQLite)
-│   ├── ecommerce_realista.db        → Base principal de dados
-│   └── data_export/                 → Relatórios e exportações automáticas (.csv)
+├── dashboard/          # Arquivos do Power BI
+├── data/               # Banco de dados e dados exportados
+├── imagens/            # Recursos visuais (screenshots, capas, etc.)
+├── notebooks/          # Notebooks Jupyter
+├── scripts/            # Código Python de automação
 │
-├── imagens/                         → Gráficos gerados nas análises exploratórias
-│   ├── faturamento_canais.png
-│   ├── faturamento_categorias.png
-│   ├── produtos_mais_vendidos.png
-│   ├── produtos_maior_faturamento.png
-│   ├── clientes_top10.png
-│   └── clientes_pareto.png
-│
-├── notebooks/                       → Notebooks Jupyter com as etapas do pipeline
-│   ├── 01_geracao_dados.ipynb       → Etapa 1 — geração e modelagem de dados
-│   ├── 02_transformacao_analise_ecommerce.ipynb  → Etapa 2 — exploração e análise
-│   └── 03_automacao_ecommerce.ipynb → Etapa 3 — automação e integração com Power BI
-│
-├── scripts/                         → Scripts Python independentes
-│   └── automacao_ecommerce.py       → Script principal de automação modular
-│
-├── requirements.txt                 → Lista de dependências do projeto
-├── .gitignore                       → Arquivos e pastas ignorados no versionamento
-└── README.md                        → Documentação completa do projeto
-
-
-```
-
-## Tecnologias Utilizadas
-
-- **Linguagem:** Python  
-- **Bibliotecas:** **Pandas**, **NumPy**, **Faker**, **Matplotlib**, **Seaborn**  
-- **Banco de Dados:** SQLite  
-- **Visualização e Business Intelligence:** Power BI  
-- **Ambiente de Desenvolvimento:** VS Code  
-- **Controle de Versão:** Git e GitHub
-
-## Etapas do Projeto
-
-O projeto adota uma arquitetura de **pipeline ELT (Extract, Load, Transform)**, desenvolvida em Python e integrada a um banco de dados relacional SQLite.
-
-Cada etapa representa uma fase do processo analítico — da criação dos dados até a automação e integração com Business Intelligence.
-
-### 01 - Geração e Carga de Dados (E + L)
-Criação de dados sintéticos realistas utilizando **Faker** e **NumPy**, seguidos da carga automatizada no banco `ecommerce_realista.db`.
-
-**Status:** Concluído ✅
+├── .gitignore
+├── README.md
+└── requirements.txt
 
 ---
 
-### 02 - Transformação e Análise (T)
-Integração de consultas **SQL** e manipulações com **Pandas**, permitindo compreender o comportamento de compra dos clientes, o desempenho das categorias e o equilíbrio entre os canais de venda.
+## 🔄 Como Executar o Projeto
 
-**Principais indicadores:**
-- Faturamento total: R$ 5,87 milhões  
-- Ticket médio: R$ 210,50  
-- Canais equilibrados entre loja física e e-commerce  
-- Efeito Pareto (20% dos clientes → 80% da receita)
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/gustavogit4/ecommerce-data-analytics.git
 
-**Status:** Concluído ✅
+2. Instale as dependências:
+   pip install -r requirements.txt
 
----
+3. Execute o script de automação:
+   python scripts/automacao_ecommerce.py
 
-### 03 - Automação e Power BI
-Automação completa da extração, transformação e exportação dos relatórios, com versionamento automático por data e registro de logs.
-
-Integração planejada com **Power BI** para criação de dashboards interativos e acompanhamento de KPIs em tempo real.
-
-**Status:** Em andamento 🔄
-
-## Execução Local
-
-### Requisitos
-
-- **Python:** Versão 3.10 ou superior  
-- **Dependências:** Listadas no arquivo `requirements.txt`
+4. Abra o dashboard no Power BI:
+   dashboard/ecommerce_dashboard.pbix
 
 ---
 
-### Instalação
-
-No terminal, dentro da pasta do projeto:
-
-```bash
-pip install -r requirements.txt
-
-Execução:
-
-Após a instalação, execute o script principal:
-python automacao_ecommerce.py
-
-Saída esperada no terminal:
-Iniciando automação de dados...
-Processo concluído com sucesso! Ticket médio: R$ 392.42
-
-Os arquivos CSV e logs serão gerados automaticamente na pasta:
-data_export/
-├── vendas_detalhadas_YYYY-MM-DD.csv
-├── resumo_categorias_YYYY-MM-DD.csv
-├── resumo_clientes_YYYY-MM-DD.csv
-└── log_execucao.txt
-
-Execução via Notebook:
-
-Também é possível rodar o processo dentro do Jupyter Notebook:
-notebooks/03_automacao_ecommerce.ipynb
-Basta executar todas as células na sequência.
-```
-## Autor
-
-**Gustavo de Paula Silva**  
-Analista de Dados | Pós-graduação em Estatística para Ciência de Dados — PUC Minas  
-E-mail: gdepaulasilva966@gmail.com  
-GitHub: [@gustavogit4](https://github.com/gustavogit4)
+Autor
+Gustavo de Paula Silva
+Analista de Dados | Pós-graduação em Estatística para Ciência de Dados — PUC Minas
+E-mail: gdepaulasilva966@gmail.com
+GitHub: @gustavogit4
 
 ---
 
-## Versão
+Status:
 
-**Versão atual:** 1.1.0 — Automação modular com docstrings e logging estruturado  
-**Última atualização:** 26/10/2025
+Projeto concluído — versão final publicada no GitHub.
+Última atualização: outubro/2025
+
+---
+
+
+
+
