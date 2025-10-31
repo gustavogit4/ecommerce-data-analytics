@@ -8,7 +8,7 @@ Simulação completa de um ambiente de **análise e automação de dados**, inte
 
 O projeto tem como objetivo representar o ciclo real de trabalho de um **Analista de Dados**, desde a geração até a visualização e automação das informações.  
 
-Foi desenvolvido um **e-commerce fictício**, com dados sintéticos realistas que simulam o comportamento de clientes, produtos e vendas.
+Por tanto, foi desenvolvido um **e-commerce fictício**, com dados sintéticos realistas que simulam o comportamento de clientes, produtos e vendas.
 
 ---
 
@@ -50,7 +50,7 @@ O arquivo do dashboard está disponível em:
 
 ![Modelo de Dados](dashboard/dashboard_model.png)
 
-Esquema estrela com a tabela fato `vendas` e dimensões `clientes`, `produtos`, `metas_kpi`, `tabela_medidas` e `atualizacao`.
+Esquema estrela com a tabela fato `vendas`, dimensões `clientes`, `produtos` e tabelas auxiliares `metas_kpi`, `tabela_medidas` e `atualizacao`.
 
 ---
 
@@ -82,7 +82,7 @@ ecommerce-data-analytics_Gustavo_Paula_Silva/
 │
 ├── dashboard/          # Arquivos do Power BI
 ├── data/               # Banco de dados e dados exportados
-├── imagens/            # Recursos visuais (screenshots, capas, etc.)
+├── imagens/            # Recursos visuais (gráficos da EDA)
 ├── notebooks/          # Notebooks Jupyter
 ├── scripts/            # Código Python de automação
 │
@@ -93,9 +93,8 @@ ecommerce-data-analytics_Gustavo_Paula_Silva/
 ```
 
 ## 🔄 Como Executar o Projeto
-
-1. Clone o repositório:
    ```bash
+1. Clone o repositório:
    git clone https://github.com/gustavogit4/ecommerce-data-analytics.git
 ```
    ```bash
