@@ -239,4 +239,3 @@ Pós-graduação em Estatística para Ciência de Dados — PUC Minas
 
 🐙 GitHub: @gustavogit4
 
-
