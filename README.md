@@ -1,137 +1,242 @@
-# E-commerce Data Analytics — Gustavo de Paula Silva 
+📦 E-commerce Data Analytics — Arquitetura e Pipeline de Dados
 
----
+Autor: Gustavo de Paula Silva
+Última atualização: Outubro/2025
 
-Simulação completa de um ambiente de **análise e automação de dados**, integrando Python, SQLite e Power BI.
+Este projeto implementa um ambiente completo de engenharia e análise de dados para um e-commerce fictício, cobrindo todo o ciclo de vida da informação — da geração ao consumo analítico. A solução integra Python, SQLite e Power BI, com foco em arquitetura, transformação, automação e visualização.
 
-## Objetivo
+1. Objetivo do Projeto
 
-O projeto tem como objetivo representar o ciclo real de trabalho de um **Analista de Dados**, desde a geração até a visualização e automação das informações.  
+Desenvolver um pipeline de dados funcional que simula o fluxo real de trabalho em um ambiente de BI/Análise de Dados, incluindo:
 
-Foi desenvolvido um **e-commerce fictício**, com dados sintéticos realistas que simulam o comportamento de clientes, produtos e vendas.
+geração de dados sintéticos realistas
 
----
+armazenamento relacional
 
-## Etapas do Projeto
+transformação e métricas de negócio
 
-### 1️⃣ Geração e Carga de Dados (Python + SQLite)
-- Criação do banco de dados relacional `ecommerce_realista.db`.
-- Tabelas: **clientes**, **produtos** e **vendas**.
-- Simulação de dados coerentes com o contexto de um e-commerce real.
+automação de rotinas
 
-### 2️⃣ Transformação e Análise de Dados (Pandas + SQL)
-- Limpeza, transformação e consolidação das tabelas.
-- Cálculo de métricas de desempenho: faturamento, ticket médio, vendas por categoria e cliente.
-- Armazenamento dos resultados em `data_export/`.
+visualização dinâmica em Power BI
 
-### 3️⃣ Automação de Processos (Python Script)
-- Geração automática de relatórios CSV e atualização do banco SQLite.
-- Script: `scripts/automacao_ecommerce.py`
-- Execução automatizada do pipeline de dados.
+O projeto foi estruturado com foco em boas práticas de engenharia, reprodutibilidade e manutenibilidade.
 
-### 4️⃣ Dashboard Interativo (Power BI)
-- Criação de dashboard com KPIs, filtros e indicadores visuais.
-- Conexão direta com o banco SQLite e arquivos CSV exportados.
-- Indicadores: **Faturamento Total**, **Ticket Médio**, **Metas**, **Atualização Automática**.
+2. Arquitetura do Pipeline
+             +------------------------------+
+             |      Geração de Dados        |
+             |        (Python / Pandas)     |
+             +--------------+---------------+
+                            |
+                            v
+             +------------------------------+
+             |      Armazenamento           |
+             |      SQLite (Modelo Estrela) |
+             +--------------+---------------+
+                            |
+                            v
+             +------------------------------+
+             | Transformações & Métricas    |
+             |       (Pandas + SQL)         |
+             +--------------+---------------+
+                            |
+                            v
+             +------------------------------+
+             |     Exportação / Automação   |
+             |   Scripts Python (CSV / DB)  |
+             +--------------+---------------+
+                            |
+                            v
+             +------------------------------+
+             |   Camada de Visualização     |
+             |         Power BI             |
+             +------------------------------+
 
----
 
-## 📊 Dashboard
+A arquitetura foi desenhada para ser simples, reprodutível e compatível com ferramentas de BI utilizadas no mercado.
 
-### Power BI — *E-commerce Data Analytics*
-![Dashboard Preview](dashboard/dashboard_preview.png)
+3. Modelo de Dados (Data Warehouse)
 
-O arquivo do dashboard está disponível em:  
-📁 `dashboard/ecommerce_dashboard.pbix`
+O armazenamento segue um modelo estrela, composto por:
 
----
+Tabela Fato
 
-## Modelo de Dados
+fato_vendas
 
-![Modelo de Dados](dashboard/dashboard_model.png)
+Grão: 1 linha = 1 venda registrada
 
-Esquema estrela com a tabela fato `vendas` e dimensões `clientes`, `produtos`, `metas_kpi`, `tabela_medidas` e `atualizacao`.
+Campos principais: id_venda, id_cliente, id_produto, quantidade, valor_total, data_venda
 
----
+Tabelas Dimensão
 
-## Principais Insights
+dim_clientes
 
-- A categoria **Eletrônicos** possui o **maior faturamento** e garante estabilidade financeira.  
-- **Eletrônicos** e **Alimentos** representam categorias de alto giro.  
-- O **ticket médio** se mantém estável, com tendência de crescimento nos últimos meses.  
-- O painel possui **metas dinâmicas**, permitindo avaliar o desempenho em tempo real.
+dim_produtos
 
----
+dim_calendario
 
-## Tecnologias Utilizadas
+Tabelas Auxiliares
 
-| Tecnologia | Descrição |
-|-------------|------------|
-| **Python 3.11** | Geração e automação de dados |
-| **Pandas / Numpy** | Manipulação e análise |
-| **SQLite3** | Armazenamento relacional |
-| **Power BI** | Visualização e KPIs |
-| **Git & GitHub** | Controle de versão |
+metas_kpi
 
----
+tabela_medidas
 
-## Estrutura do Projeto
+atualizacao
 
-```text
+4. Decisões Técnicas
+SQLite como fonte de dados
+
+leve
+
+fácil de integrar
+
+excelente para prototipação
+
+relacional e estruturado
+
+Estrutura modular
+
+notebooks → exploração e desenvolvimento
+
+scripts → automação
+
+data/ → outputs rastreáveis
+
+dashboard/ → camada de BI
+
+Uso de dados sintéticos
+
+sem restrições de privacidade
+
+permite controle total da lógica
+
+possibilita cenários de teste realistas
+
+Pipeline automatizado
+
+Simula rotinas recorrentes como:
+
+ingestão
+
+enriquecimento
+
+atualização
+
+exportação
+
+5. Etapas do Pipeline
+1) Geração e Carga (Python + SQLite)
+
+criação do banco
+
+simulação das tabelas
+
+inserção dos registros
+
+validação
+
+2) Transformações (Pandas + SQL)
+
+limpeza
+
+consolidação
+
+métricas de negócio
+
+exportação para CSV
+
+3) Automação
+
+Script principal:
+
+scripts/automacao_ecommerce.py
+
+4) Visualização (Power BI)
+
+Indicadores:
+
+faturamento
+
+ticket médio
+
+categorias
+
+metas
+
+atualização automática
+
+6. Principais Insights
+
+Eletrônicos: maior impacto em receita
+
+Eletrônicos + Alimentos: maior giro
+
+Ticket médio estável e crescente
+
+Metas e atualização garantem governança
+
+7. Tecnologias Utilizadas
+Tecnologia	Finalidade
+Python 3.11	Geração e automação
+Pandas / NumPy	Manipulação e análise
+SQLite3	Armazenamento relacional
+Power BI	Visualização
+Git & GitHub	Versionamento
+8. Estrutura do Repositório
 ecommerce-data-analytics_Gustavo_Paula_Silva/
 │
-├── dashboard/          # Arquivos do Power BI
-├── data/               # Banco de dados e dados exportados
-├── imagens/            # Recursos visuais (screenshots, capas, etc.)
+├── dashboard/          # Power BI (.pbix)
+├── data/               # Banco SQLite e CSVs exportados
+├── imagens/            # Screenshots e diagramas
 ├── notebooks/          # Notebooks Jupyter
-├── scripts/            # Código Python de automação
+├── scripts/            # Automação Python
 │
 ├── .gitignore
 ├── README.md
 └── requirements.txt
 
-```
+9. Como Executar
+# 1. Clone o repositório
+git clone https://github.com/gustavogit4/ecommerce-data-analytics.git
 
-## 🔄 Como Executar o Projeto
+# 2. Instale as dependências
+pip install -r requirements.txt
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/gustavogit4/ecommerce-data-analytics.git
-```
-   ```bash
-2. Instale as dependências:
-   pip install -r requirements.txt
-```
-   ```bash
-3. Execute o script de automação:
-   python scripts/automacao_ecommerce.py
-```
-   ```bash
-4. Abra o dashboard no Power BI:
-   dashboard/ecommerce_dashboard.pbix
-```
+# 3. Execute a automação
+python scripts/automacao_ecommerce.py
 
----
+# 4. Abra o dashboard no Power BI
+dashboard/ecommerce_dashboard.pbix
 
-## Autor
+10. Limitações
 
-**Gustavo de Paula Silva**
+dados sintéticos não refletem sazonalidade real
 
-Analista de Dados | Pós-graduação em Estatística para Ciência de Dados — PUC Minas
+ausência de logs estruturados
 
-E-mail: gdepaulasilva966@gmail.com
+não há testes automatizados
 
-GitHub: @gustavogit4
+SQLite não suporta alta concorrência
 
----
+11. Possíveis Melhorias
 
-Status:
+migração para PostgreSQL / DuckDB
 
-Projeto concluído — versão final publicada no GitHub.
-Última atualização: outubro/2025
+criação de logs com logging
 
----
+DAG no Airflow
 
+containerização (Docker)
 
+calendário analítico dedicado
+
+12. Contato
+
+Gustavo de Paula Silva
+Analista de Dados
+Pós-graduação em Estatística para Ciência de Dados — PUC Minas
+
+📧 gdepaulasilva966@gmail.com
+
+🐙 GitHub: @gustavogit4
 
 
