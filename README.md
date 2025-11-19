@@ -255,13 +255,13 @@ scripts/automacao_ecommerce.py
 ### 5.2 Registro de Logs
 
 Para garantir rastreabilidade, o script utiliza logging estruturado:
-
+```
 [info] Iniciando pipeline…
 [info] Carregando base SQLite…
 [info] Executando transformações…
 [info] Exportando métricas…
 [success] Pipeline concluído com sucesso - timestamp registrado
-
+```
 
 ### 5.3 Exportação de Artefatos
 
