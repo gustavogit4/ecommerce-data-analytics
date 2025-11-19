@@ -532,9 +532,10 @@ Essas melhorias garantem qualidade técnica, manutenibilidade e reforçam boas p
 ---
 
 ## Licença
-Este projeto está licenciado sob a licença MIT. Você é livre para usar, modificar e distribuir este código, desde que mantenha a atribuição ao autor original.
 
-Para mais detalhes, consulte o arquivo LICENSE no repositório.
+Este projeto está licenciado sob a licença **MIT**. Você é livre para usar, modificar e distribuir este código, desde que mantenha a atribuição ao autor original.
+
+Para mais detalhes, consulte o arquivo [LICENSE](LICENSE) no repositório.
 
 Desenvolvido por Gustavo de Paula Silva.
 
