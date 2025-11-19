@@ -1,5 +1,3 @@
-markdown
-Copy
 # E-commerce Data Analytics — Arquitetura e Pipeline de Dados
 
 **Autor:** Gustavo de Paula Silva  
